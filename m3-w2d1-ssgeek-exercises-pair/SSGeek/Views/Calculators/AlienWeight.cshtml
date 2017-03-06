@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using SSGeek.Models;
+
+@model AlienInfo
+
+@using (Html.BeginForm("AlienWeight", "Calculators", FormMethod.Get))
+{
+    if (ViewBag.InputWeight == null)
+    {
+        @Html.Label("Choose a planet: ")
+        @Html.DropDownList("Planet", AlienInfo.Planets)
+        <br />
+       
+        @Html.Label("Enter your Earth weight: ")
+        @Html.TextBox("InputWeight")
+        <br />
+
+        <input type="submit" value="Calculate Weight" />
+
+    }
+    else
+    {
+        <img src="~/Content/img/@ViewBag.PlanetImage" />
+        <font color="white" style="vertical-align: top">If you are @ViewBag.InputWeight lbs on planet Earth, you would weigh @ViewBag.CalculatedWeight lbs on @ViewBag.PlanetName.</font>
+    }
+}

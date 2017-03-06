@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using SSGeek.Models;
+
+@model AlienInfo
+
+@using (Html.BeginForm("AlienTravel", "Calculators", FormMethod.Get))
+{
+    if (ViewBag.InputAge == null)
+    {
+
+
+        @Html.Label("Choose a planet: ")
+        @Html.DropDownList("Planet", AlienInfo.Planets)
+        <br />
+        @Html.Label("Choose a mode of transportation: ")
+        @Html.DropDownList("InputMode", AlienInfo.TransportationModes) 
+        <br />
+        @Html.Label("Enter your Earth age: ")
+        @Html.TextBox("InputAge")
+        <br />
+
+
+        <input type="submit" value="Calculate Travel Time" />
+    }
+    else
+    {
+
+        <img src="~/Content/img/@ViewBag.PlanetImage" />
+        <font color="white" style="vertical-align: top">Traveling by @ViewBag.InputMode you will reach @ViewBag.PlanetName in @ViewBag.EarthYears years. You will be @ViewBag.CalculatedAge years old.</font>
+    }
+}

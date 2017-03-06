@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using SSGeek.Models;
+
+@model AlienInfo
+
+@using (Html.BeginForm("AlienAge", "Calculators", FormMethod.Get))
+{
+    if(ViewBag.InputAge == null)
+    {
+       @Html.Label("Choose a planet: ")
+       @Html.DropDownList("Planet", AlienInfo.Planets)
+       <br />
+
+      @Html.Label("Enter your Earth age: ")
+      @Html.TextBox("InputAge")
+      <br />
+
+     <input type="submit" value="Calculate Age" />
+
+    }
+    else
+    {
+        <img src="~/Content/img/@ViewBag.PlanetImage" />
+        <font color="white" style="vertical-align: top">If you are @ViewBag.InputAge years old on planet Earth, then you are @ViewBag.CalculatedAge @ViewBag.PlanetName years old.</font>
+    }
+}
