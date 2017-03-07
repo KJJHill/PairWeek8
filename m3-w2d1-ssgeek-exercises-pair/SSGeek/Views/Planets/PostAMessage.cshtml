@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Post A Message";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if(ViewBag.Result == null)
+{
+    using (Html.BeginForm("PostAMessage", "Planets", FormMethod.Get))
+    {
+        @Html.Label("Username: ")
+        @Html.TextBox("Username")<br /><br />
+        @Html.Label("Subject: ")
+        @Html.TextBox("Subject")<br /><br />
+        @Html.Label("Message: ")
+        @Html.TextArea("Message")
+
+        <br /><br />
+        <input type="submit" value="Submit" />
+    }
+}
+else if (ViewBag.Result)
+{
+    <p>Your post was successfully updated!</p>
+}
+else
+{
+    <p>Your post was rejected! Please try again.</p>
+}

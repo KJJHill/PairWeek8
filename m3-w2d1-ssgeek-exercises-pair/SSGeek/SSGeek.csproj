@@ -158,6 +158,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Calculators\AlienWeight.cshtml" />
     <Content Include="Views\Calculators\AlienTravel.cshtml" />
+    <Content Include="Views\Planets\ForumPost.cshtml" />
+    <Content Include="Views\Planets\PostAMessage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

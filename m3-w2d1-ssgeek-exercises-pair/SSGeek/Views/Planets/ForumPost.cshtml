@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Solar System Geek Forum";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SSGeek.Models;
+
+@model List<ForumPost>
+
+
+    <h2>@ViewBag.Title</h2>
+
+    <span style="text-align: center; color: black">@Html.ActionLink("Post A Message", "PostAMessage", "Planets")</span>
+    <br />
+        <table>
+            @foreach (ForumPost post in Model)
+            {
+                <tr>
+                    <td>
+                        <b>@post.Subject</b> <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        by @post.Username @post.PostDate<br />
+                    </td>
+                </tr>
+                    <tr>
+                        <td>
+                            @post.Message
+                        </td>
+                    </tr>
+            }
+        </table>

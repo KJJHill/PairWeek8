@@ -5,25 +5,27 @@
 @using SSGeek.Models;
 
 @model AlienInfo
+<section class="centeredPanel">
 
-@using (Html.BeginForm("AlienWeight", "Calculators", FormMethod.Get))
-{
-    if (ViewBag.InputWeight == null)
+    @using (Html.BeginForm("AlienWeight", "Calculators", FormMethod.Get))
     {
-        @Html.Label("Choose a planet: ")
-        @Html.DropDownList("Planet", AlienInfo.Planets)
-        <br />
-       
-        @Html.Label("Enter your Earth weight: ")
-        @Html.TextBox("InputWeight")
-        <br />
+        if (ViewBag.InputWeight == null)
+        {
+            @Html.Label("Choose a planet: ")
+            @Html.DropDownList("Planet", AlienInfo.Planets)
+            <br />
 
-        <input type="submit" value="Calculate Weight" />
+            @Html.Label("Enter your Earth weight: ")
+            @Html.TextBox("InputWeight")
+            <br />
 
+            <input type="submit" value="Calculate Weight" />
+
+        }
+        else
+        {
+            <img src="~/Content/img/@ViewBag.PlanetImage" />
+            <font style="vertical-align: top">If you are @ViewBag.InputWeight lbs on planet Earth, you would weigh @ViewBag.CalculatedWeight lbs on @ViewBag.PlanetName.</font>
+        }
     }
-    else
-    {
-        <img src="~/Content/img/@ViewBag.PlanetImage" />
-        <font color="white" style="vertical-align: top">If you are @ViewBag.InputWeight lbs on planet Earth, you would weigh @ViewBag.CalculatedWeight lbs on @ViewBag.PlanetName.</font>
-    }
-}
+    </section>

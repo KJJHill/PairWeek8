@@ -128,7 +128,7 @@ section img {
     }
 
 #main-content {
-    background-color: white;
+    background-color: lightcoral;
     color: black;
     border-radius: 10px;
     /* width: 85%; */
@@ -152,7 +152,7 @@ section img {
 }
 
 label {
-    color: white;
+    color: black;
 }
 
 
@@ -179,28 +179,29 @@ input[type=text], input[type=datetime], textarea {
 }
 
 th, td {
-    color: white;
+    color: black;
 }
 
 table tr:first-child {
     padding-bottom: 10px;
     font-size: 1.1em;
+    color: black;
 }
 
 table td {
     min-width: 75px;
     padding: 5px 5px;
+    color: black;
 }
-
 
 section.centeredPanel {
     clear: both;
     display: block;
     width: 80%;
     vertical-align: top;
-    
+    color: black;
+    background-color: lightcoral;
     min-height: 450px;
-    background-color: #FFF;
     border-radius: 7px;
     margin-left: 60px;
     margin-top: 60px;
