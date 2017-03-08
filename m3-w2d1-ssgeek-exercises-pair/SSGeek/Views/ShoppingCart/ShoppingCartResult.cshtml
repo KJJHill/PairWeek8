@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Shopping Cart Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    double total = 0;
+}
+
+@model List <Product>
+
+<h2>@ViewBag.Title</h2>
+
+@foreach (Product p in Model)
+{
+    <div>
+        <a href="@Url.Action("ProductDetails", new { id = p.ProductId })"><img src="~/Content/img/@p.ImageName" /></a>
+    </div>
+    <table>
+        <tr>
+            <td>
+                @p.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $@p.Price
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @p.Quantity
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $@(p.Price * p.Quantity)
+                <span style="display: none">@(total += (p.Price * p.Quantity))</span>
+            </td>
+        </tr>
+    </table>
+}
+
+<div>Grand Total: $@total</div>

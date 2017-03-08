@@ -44,13 +44,13 @@ namespace SSGeek.Controllers
             return View();
         }
 
-        public ActionMethod CreateUser()
+        public ActionResult CreateUser()
         {
             // Do some stuff
             return View();
         }
         [HttpPost]
-        public ActionMethod CreateUser(ViewModel model)
+        public ActionResult CreateUser(ForumPost model)
         {
             if (ModelState.IsValid)
             {

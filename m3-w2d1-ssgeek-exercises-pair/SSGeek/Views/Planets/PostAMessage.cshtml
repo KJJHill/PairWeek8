@@ -6,9 +6,13 @@
 
 <h2>@ViewBag.Title</h2>
 
+@using SSGeek.Models;
+
+@model ForumPost
+
 @if(ViewBag.Result == null)
 {
-    using (Html.BeginForm("PostAMessage", "Planets", FormMethod.Get))
+    using (Html.BeginForm("PostAMessage", "Planets", FormMethod.Post))
     {
         @Html.Label("Username: ")
         @Html.TextBox("Username")<br /><br />
@@ -24,8 +28,10 @@
 else if (ViewBag.Result)
 {
     <p>Your post was successfully updated!</p>
+    ViewBag.Result = null;
 }
 else
 {
     <p>Your post was rejected! Please try again.</p>
+    ViewBag.Result = null;
 }

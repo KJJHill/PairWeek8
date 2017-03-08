@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Solar System Geek Gift Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@model List<Product>
+
+@foreach (Product p in Model)
+{
+    <div>
+        <a href="@Url.Action("ProductDetails", new { id = p.ProductId })"><img src="~/Content/img/@p.ImageName" /></a>
+    </div>
+    <table>
+        <tr>
+            <td>
+                @p.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @p.Price
+            </td>
+        </tr>
+    </table>
+}
